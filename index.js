@@ -43,3 +43,9 @@ function game() {
 }
 
 // game();
+
+let playButton = document.querySelector(".rules-button");
+function hideRules(e) {
+  document.querySelector(".rules-container").style.visibility = "hidden";
+}
+playButton.addEventListener("click", hideRules);
