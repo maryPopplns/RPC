@@ -1,0 +1,30 @@
+header {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  display: flex;
+  justify-content: space-evenly;
+  width: 800px;
+}
+
+body {
+  background-image: url("src/background1.png");
+  /* opacity: 0.1; */
+}
+
+#rock {
+  width: 100px;
+  height: auto;
+}
+
+#paper {
+  width: 100px;
+  height: auto;
+}
+
+#sissors {
+  width: 100px;
+  height: auto;
+}

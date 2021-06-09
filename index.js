@@ -42,4 +42,4 @@ function game() {
     : alert("You lose ;(");
 }
 
-game();
+// game();
