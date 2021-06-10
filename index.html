@@ -7,10 +7,20 @@
     <link rel="icon" sizes="16x16" href="src/favicon.png" />
     <link rel="stylesheet" href="index.css" />
     <link rel="reset-css" href="reset.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
-      <h1>じゃん拳</h1>
+      <a
+        target="_blank"
+        href="https://jet.fandom.com/wiki/Janken#:~:text=Janken%20(%E3%81%98%E3%82%83%E3%82%93%E6%8B%B3%2C%20janken%3F,and%20importance%20in%20daily%20life."
+      >
+        <h1>じゃん拳</h1>
+      </a>
     </header>
     <hr id="header-division" />
     <!-- rules for game -->
@@ -24,8 +34,30 @@
         <button type="button" class="rules-button">click to play</button>
       </div>
     </div>
-
-    <main></main>
+    <!-- game controls -->
+    <main>
+      <div class="score-container">
+        <div class="scores">
+          <div class="individual-scores">
+            <div>You :</div>
+            <div id="player-score">0</div>
+          </div>
+          <div class="individual-scores">
+            <div>Computer :</div>
+            <div id="computer-score">0</div>
+          </div>
+        </div>
+      </div>
+      <div class="round-results"></div>
+      <div class="weapon-icons">
+        <ul>
+          <li><img class='all-weapons' id='rock' src='src/rock.png'</li>
+          <li><img class='all-weapons' id='paper' src='src/paper.png'</li>
+          <li><img class='all-weapons' id='sissors' src='src/sissors.png'</li>
+          <li><img class='all-weapons' id='gun' src='src/gun.png'</li>
+        </ul>
+      </div>
+    </main>
     <script src="index.js"></script>
   </body>
 </html>

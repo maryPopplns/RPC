@@ -4,10 +4,6 @@ function computerPlay() {
 }
 
 function playRound(player, computer) {
-  let input = player.toLowerCase();
-  // if (input !== 'rock' || input !== 'paper' || input !== 'sissors) {
-  //   alert('refresh and use a correct input')
-  // }
   if (player === computer) return "tie";
   return input === "rock" && computer === "sissors"
     ? "user wins"
@@ -42,10 +38,31 @@ function game() {
     : alert("You lose ;(");
 }
 
-// game();
+const playButton = document.querySelector(".rules-button");
+function ruleHider(e) {
+  const heading = document.querySelector("h1");
+  const body = document.querySelector("body");
+  const rules = document.querySelector(".rules-container");
+  const anchor = document.querySelector("a");
+  const division = document.querySelector("#header-division");
+  const main = document.querySelector("main");
 
-let playButton = document.querySelector(".rules-button");
-function hideRules(e) {
-  document.querySelector(".rules-container").style.visibility = "hidden";
+  heading.style.color = "#611212";
+  heading.innerText = "FIGHT!";
+  heading.style.animation = "textgrowth .5s infinite alternate";
+  heading.style.fontFamily = "Permanent Marker, cursive";
+  body.style.backgroundColor = "rgba(103, 29, 29, 0.25)";
+  rules.style.visibility = "hidden";
+  anchor.removeAttribute("href");
+  division.style.backgroundColor = "#611212";
+  main.style.visibility = "visible";
 }
-playButton.addEventListener("click", hideRules);
+playButton.addEventListener("click", ruleHider);
+
+const rock = document.querySelector("#rock");
+rock.addEventListener("click");
+const paper = document.querySelector("#paper");
+
+const sissors = document.querySelector("#sissors");
+
+const gun = document.querySelector("#gun");

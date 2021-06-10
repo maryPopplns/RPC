@@ -1,8 +1,26 @@
 :root {
-  --icon-width: 100px;
-  --icon-height: auto;
-  --text-color: rgb(109, 95, 23);
+  --icon-width: 200px;
+  --text-color: rgb(140, 121, 29);
   --rules-color: rgb(25, 104, 60);
+  --fight-red: #611212;
+}
+
+a,
+a:hover,
+a:active,
+a:visited,
+a:focus {
+  text-decoration: none;
+  min-height: 220px;
+}
+
+@keyframes textgrowth {
+  0% {
+    font-size: 7em;
+  }
+  100% {
+    font-size: 7.4em;
+  }
 }
 
 body {
@@ -13,6 +31,7 @@ body {
 header {
   display: flex;
   justify-content: center;
+  min-height: 205px;
 }
 
 #header-division {
@@ -33,7 +52,7 @@ h1 {
 .rules-container {
   display: flex;
   justify-content: center;
-  visibility: hidden;
+  /* visibility: hidden; */
 }
 
 .rules-for-game {
@@ -41,7 +60,7 @@ h1 {
   flex-direction: column;
   display: flex;
   align-items: center;
-  margin-top: 5em;
+  margin-top: 2em;
   padding: 20px;
   border: 2em solid var(--rules-color);
   width: 900px;
@@ -49,8 +68,8 @@ h1 {
 }
 
 #rules-img {
-  height: 600px;
-  opacity: 0.7;
+  height: 500px;
+  opacity: 0.6;
 }
 
 .rules-button {
@@ -65,17 +84,77 @@ h1 {
   background-color: var(--rules-color);
 }
 
-/* #rock {
-  width: var(--icon-width);
-  height: var(var(--icon-height));
+main {
+  display: flex;
+  flex-direction: column;
+  visibility: hidden;
 }
 
-#paper {
-  width: var(--icon-width);
-  height: var(var(--icon-height));
+.score-container {
+  margin-top: 3em;
+  display: flex;
+  justify-content: center;
 }
 
-#sissors {
+.scores {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 3em;
+  font-family: "Permanent Marker", cursive;
+  color: var(--fight-red);
+  width: calc(100vw - 20vw);
+}
+
+.individual-scores {
+  display: flex;
+  justify-content: conter;
+}
+
+#player-score {
+  margin-left: 20px;
+}
+
+#computer-score {
+  margin-left: 20px;
+}
+
+.round-results {
+  min-height: 300px;
+}
+
+.weapon-icons {
+  display: flex;
+  justify-content: center;
+}
+
+ul {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 900px;
+  list-style-type: none;
+}
+
+.all-weapons {
+  padding: 10px;
+  margin: 0 30px 0 30px;
+  border: 1em solid;
   width: var(--icon-width);
-  height: var(var(--icon-height));
-} */
+  background-color: rgb(123, 44, 42, 0.5);
+  border-radius: 0.5em;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.all-weapons:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 1em 0.3em var(--fight-red);
+}
+
+#gun {
+  border: 1em solid var(--fight-red);
+  background-color: yellow;
+}
+#gun:hover {
+  box-shadow: 0 0 1.2em 0.3em yellow;
+}
