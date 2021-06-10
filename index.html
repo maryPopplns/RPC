@@ -48,13 +48,20 @@
           </div>
         </div>
       </div>
-      <div class="round-results">'Tie!'</div>
+      <div class="round-results-container">
+        <div class="round-results">'Winner!'</div>
+        <button id="reset-btn" type="button">reset</button>
+      </div>
       <div class="weapon-icons">
         <ul>
           <li><img class='all-weapons' id='rock' src='src/rock.png'</li>
           <li><img class='all-weapons' id='paper' src='src/paper.png'</li>
           <li><img class='all-weapons' id='sissors' src='src/sissors.png'</li>
-          <li><img class='all-weapons' id='gun' src='src/gun.png'</li>
+          <li>
+            <img style='background-color: rgb(255, 255, 0, 0.3); border: 1em
+            solid var(--fight-red);' class='all-weapons' id='gun'
+            src='src/gun.png'
+          </li>
         </ul>
       </div>
     </main>
