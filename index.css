@@ -118,7 +118,13 @@ main {
 }
 
 .round-results {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-height: 300px;
+  font-size: 5em;
+  color: var(--fight-red);
+  font-family: "Permanent Marker", cursive;
 }
 
 .weapon-icons {
@@ -148,12 +154,14 @@ ul {
 .all-weapons:hover {
   transform: scale(1.1);
   box-shadow: 0 0 1em 0.3em var(--fight-red);
+  background-color: rgb(123, 44, 42, 0.8);
 }
 
 #gun {
   border: 1em solid var(--fight-red);
-  background-color: yellow;
+  background-color: rgb(255, 255, 0, 0.3);
 }
 #gun:hover {
   box-shadow: 0 0 1.2em 0.3em yellow;
+  background-color: rgb(255, 255, 0, 0.8);
 }

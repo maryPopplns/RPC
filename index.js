@@ -1,41 +1,62 @@
+let playerScore = 0;
+let computerScore = 0;
+
 function computerPlay() {
   let weapons = ["rock", "paper", "sissors"];
   return weapons[Math.floor(Math.random() * 3)];
 }
 
 function playRound(player, computer) {
+  console.log(player);
+  console.log(computer);
   if (player === computer) return "tie";
-  return input === "rock" && computer === "sissors"
-    ? "user wins"
-    : "computer wins";
-  return input === "paper" && computer === "rock"
-    ? "user wins"
-    : "computer wins";
-  return input === "sissors" && computer === "paper"
-    ? "user wins"
-    : "computer wins";
+
+  if (
+    (player === "rock" && computer === "sissors") ||
+    (player === "paper" && computer === "rock") ||
+    (player === "sissors" && computer === "paper")
+  ) {
+    return "user wins";
+  } else {
+    return "computer wins";
+  }
 }
 
-function game() {
-  let playerScore = 0;
-  let computerScore = 0;
-  for (let i = 0; i < 5; i++) {
-    let round = playRound(
-      window.prompt("allowed inputs : rock, paper, sissors"),
-      computerPlay()
-    );
-    console.log(round);
-    if (round == "tie") continue;
-    round == "user wins" ? playerScore++ : computerScore++;
-    console.log(playerScore);
-    console.log(computerScore);
+function game(e) {
+  if (e.target.id === "rock") {
+    scoreKeeper(playRound("rock", computerPlay()));
   }
-  if (playerScore == computerScore) {
-    return alert("tie");
+  if (e.target.id === "paper") {
+    scoreKeeper(playRound("paper", computerPlay()));
   }
-  return playerScore > computerScore
-    ? alert("You are the winner")
-    : alert("You lose ;(");
+  if (e.target.id === "sissors") {
+    scoreKeeper(playRound("sissors", computerPlay()));
+  }
+
+  function scoreKeeper(result) {
+    const roundResults = document.querySelector(".round-results");
+    if (result === "tie") {
+      roundResults.innerText = "Tie!";
+    }
+    if (result === "user wins") {
+      playerScore++;
+      roundResults.innerText = "Round Won";
+      document.querySelector("#player-score").innerText = playerScore;
+    }
+    if (result === "computer wins") {
+      computerScore++;
+      roundResults.innerText = "Round Lost";
+      document.querySelector("#computer-score").innerText = computerScore;
+    }
+
+    if (playerScore === 5) {
+      roundResults.innerText = "Winner!";
+    }
+
+    if (computerScore === 5) {
+      roundResults.innerText = "Loser!";
+    }
+  }
 }
 
 const playButton = document.querySelector(".rules-button");
@@ -61,9 +82,13 @@ function ruleHider(e) {
 playButton.addEventListener("click", ruleHider);
 
 const rock = document.querySelector("#rock");
-rock.addEventListener("click");
+rock.addEventListener("click", game);
+
 const paper = document.querySelector("#paper");
+paper.addEventListener("click", game);
 
 const sissors = document.querySelector("#sissors");
+sissors.addEventListener("click", game);
 
 const gun = document.querySelector("#gun");
+gun.addEventListener("click", game);
