@@ -24,7 +24,7 @@ a:focus {
 }
 
 body {
-  background-image: url("src/background.png");
+  background-image: url("src/test.png");
   background-color: rgba(11, 104, 30, 0.249);
 }
 
@@ -69,7 +69,6 @@ h1 {
 
 #rules-img {
   height: 500px;
-  opacity: 0.6;
 }
 
 .rules-button {

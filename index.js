@@ -52,6 +52,7 @@ function ruleHider(e) {
   heading.style.animation = "textgrowth .5s infinite alternate";
   heading.style.fontFamily = "Permanent Marker, cursive";
   body.style.backgroundColor = "rgba(103, 29, 29, 0.25)";
+  body.style.backgroundImage = 'url("src/holdup.png")';
   rules.style.visibility = "hidden";
   anchor.removeAttribute("href");
   division.style.backgroundColor = "#611212";
