@@ -30,9 +30,16 @@ function game(e) {
   if (e.target.id === "sissors") {
     scoreKeeper(playRound("sissors", computerPlay()));
   }
-  // if (e.target.id === "gun") {
-  //   logic for the gun
-  // }
+  if (e.target.id === "gun") {
+    scoreKeeper(Math.floor(Math.random() * 2));
+  }
+
+  function gameOver() {
+    rock.removeAttribute("id");
+    paper.removeAttribute("id");
+    sissors.removeAttribute("id");
+    gun.removeAttribute("id");
+  }
 
   function scoreKeeper(result) {
     const roundResults = document.querySelector(".round-results");
@@ -54,12 +61,25 @@ function game(e) {
       roundResults.innerText = "Round Lost";
       document.querySelector("#computer-score").innerText = computerScore;
     }
+    if (result === 1) {
+      playerScore = 5;
+      document.querySelector("#player-score").innerText = playerScore;
+      roundResults.innerText = `you brought a gun to a ${computerPlay()} fight`;
+      resetBtn.style.visibility = "visible";
+      gameOver();
+      return;
+    }
+    if (result === 0) {
+      computerScore = 5;
+      document.querySelector("#computer-score").innerText = computerScore;
+      roundResults.innerText = `you rolled the dice and lost...`;
+      resetBtn.style.visibility = "visible";
+      gameOver();
+      return;
+    }
 
     if (playerScore === 5 || computerScore === 5) {
-      rock.removeAttribute("id");
-      paper.removeAttribute("id");
-      sissors.removeAttribute("id");
-      gun.removeAttribute("id");
+      gameOver();
     }
 
     if (playerScore === 5) {
@@ -68,7 +88,7 @@ function game(e) {
     }
 
     if (computerScore === 5) {
-      roundResults.innerText = "Loser!";
+      roundResults.innerText = "You lose!";
       resetBtn.style.visibility = "visible";
     }
   }
@@ -96,7 +116,7 @@ function ruleHider() {
 }
 playButton.addEventListener("click", ruleHider);
 
-function handlerAdder() {
+(function handlerAdder() {
   const weapons = [
     document.querySelector("#rock"),
     document.querySelector("#paper"),
@@ -104,21 +124,13 @@ function handlerAdder() {
     document.querySelector("#gun"),
   ];
   weapons.forEach((e) => e.addEventListener("click", game));
-}
+})();
 
-handlerAdder();
-
-// const rock = document.querySelector("#rock");
-// rock.addEventListener("click", game);
-
-// const paper = document.querySelector("#paper");
-// paper.addEventListener("click", game);
-
-// const sissors = document.querySelector("#sissors");
-// sissors.addEventListener("click", game);
-
-// const gun = document.querySelector("#gun");
-// gun.addEventListener("click", game);
+// const gun = document.querySelector('#gun')
+// function cheating() {
+//   let randomNum = Math.floor(Math.random() * (2)
+// }
+// gun.addEventListener("click", cheating)
 
 const reset = document.querySelector("#reset-btn");
 function resetGame() {
