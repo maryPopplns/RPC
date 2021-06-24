@@ -1,0 +1,2 @@
+- learned about manipulating the DOM (create/find element, augment element, append element)
+- learned how to use css variables as well as the calc() function
